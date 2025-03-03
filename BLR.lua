@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "SEV Hub Blue Lock Rivals!",
+   Name = "SEV Hub || Blue Lock Rivals",
    Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
    LoadingTitle = "SEV hub",
    LoadingSubtitle = "by 4bigguys445",
@@ -11,9 +11,9 @@ local Window = Rayfield:CreateWindow({
    DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
 
    ConfigurationSaving = {
-      Enabled = false,
-      FolderName = nil, -- Create a custom folder for your hub/game
-      FileName = "Big Hub"
+      Enabled = true,
+      FolderName = "ConfigSEV", -- Create a custom folder for your hub/game
+      FileName = "SEV | 4BigGuys"
    },
 
    Discord = {
@@ -154,7 +154,7 @@ local Paragraph = Tab:CreateParagraph({Title = "READ ME", Content = "READ BEFORE
 local Toggle = Tab:CreateToggle({
    Name = "Infinite Spin",
    CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "InfSpinToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
 	infspin()
    	_G.InfSpin = Value
@@ -216,7 +216,7 @@ end)
 local NoCd = Eee:CreateToggle({
    Name = "No Cooldown",
    CurrentValue = false,
-   Flag = "Toggle2", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "NoCDToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
 		_G.NoCD = Value
 		nocd()
@@ -226,7 +226,7 @@ local NoCd = Eee:CreateToggle({
 local InfStamina = Eee:CreateToggle({
    Name = "Infinite Stamina",
    CurrentValue = false,
-   Flag = "Toggle3", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "InfStaminaToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
 		_G.InfStamina = Value
 		infstamina()
@@ -236,7 +236,7 @@ local InfStamina = Eee:CreateToggle({
 local PowerShot = Eee:CreateToggle({
    Name = "Power Shot",
    CurrentValue = false,
-   Flag = "Toggle4", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "PowershotToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
 		_G.PowerBool = Value
 		Powaaa()
@@ -249,8 +249,10 @@ local Slider = Eee:CreateSlider({
    Increment = 10,
    Suffix = "",
    CurrentValue = 110,
-   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "SliderToggle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
    	_G.Power = Value
    end,
 })
+
+Rayfield:LoadConfiguration()
